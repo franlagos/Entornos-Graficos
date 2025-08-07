@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3vhRxrw6ltCuyJGMPazuGBMJu_6iPsQ74Yg&s" width="150" height="100"> 
+    <A HREF="https://www.frro.utn.edu.ar/">Enlace UTN</A>
+    <br>
+    <br>
+    <hr style="height: 2px; background-color: black;">
+    <h1>
+        AÑO 2008
+    </h1>
+    <table style="border-collapse: collapse; width: 400px;">
+         <caption style="border: 1px solid black;">Examenes</caption>
+
+         <tr>
+            <td rowspan="2" style="border: 1px solid black;"id ="fecha"></td>
+            <td style="border: 1px solid black;">Aprobados</td>
+         </tr>
+
+         <tr>
+            <td style="border: 1px solid black";>24/30</td>
+         </tr>
+        </table> 
+    <script>
+     const fecha = new Date();
+     const formato = fecha.toLocaleDateString('es-AR');
+     document.getElementById("fecha").innerText = formato;
+    </script>
+
+    <ol>
+        <LI><A HREF="http://127.0.0.1:5500/practica1.html">Enunciado del examen</A></LI>
+        <LI><A HREF="http://127.0.0.1:5500/practica1.html" target="_blank">Resolucion</A></LI>
+    </ol>
+    <br>
+    <br>
+    <p>Puede realizar consultas completando el siguiente formulario:</p>
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario por correo</title>
+</head>
+
+<form action="mailto:tuemail@ejemplo.com" method="post" enctype="text/plain">
+  <table>
+    <tr>
+      <td><label for="email"><strong>e-mail:</strong></label></td>
+      <td><input type="email" id="email" name="email" style="width: 200px;"></td>
+    </tr>
+    <tr>
+      <td><label for="consulta"><strong>consulta:</strong></label></td>
+      <td><textarea id="consulta" name="consulta" rows="5" cols="30"></textarea></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="ENVIAR" style="font-weight: bold; padding: 5px 10px;">
+        <input type="reset" value="BORRAR" style="font-weight: bold; padding: 5px 10px;">
+      </td>
+    </tr>
+  </table>
+</form>
+<br>
+<H2>Enunciado del examen</H2>
+<p>
+  Ejercicio 1: ……………………………<br>
+  ………………………………………<br>
+  Ejercicio 2: ……………………………<br>
+  ………………………………………
+</p>
+<p>Para más información dirigirse a <a href="mailto:contacto@xx.com">contacto@xx.com</a></p>
+
+</body>
+</html>

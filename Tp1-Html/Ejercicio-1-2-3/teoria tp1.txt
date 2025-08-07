@@ -1,0 +1,419 @@
+1.
+1.a
+ Qué es HTML, cuando fue creado, cuáles fueron las distintas versiones y cuál es la última?
+  Es el lenguaje estándar para crear y estructurar páginas web. Fue creado en 1991 por Tim Berners-Lee. Las versiones principales incluyen HTML 1.0, 2.0, 3.2, 4.01, XHTML, y la última, HTML5.
+1.b
+ ¿Cuáles son los principios básicos que el W3C recomienda seguir para la creación de documentos con HTML?
+  El W3C recomienda seguir cuatro principios básicos para la creación de documentos HTML accesibles, conocidos como POUR: Perceptible, Operable, Comprensible y Robusto.
+1.c
+ En las Especificaciones de HTML, ¿cuándo un elemento o atributo se considera desaprobado? ¿y obsoleto?
+  Un elemento o atributo se considera desaprobado cuando ya no se recomienda su uso y se sugiere una alternativa, pero aún puede ser compatible con los navegadores para mantener la compatibilidad con versiones anteriores, y se considera obsoleto cuando ha sido eliminado de la especificación y no hay garantía de que los navegadores lo sigan admitiendo. 
+1.d
+ Qué es el DTD y cuáles son los posibles DTDs contemplados en la especificación de HTML 4.01?
+  Es una declaración que especifica la versión de HTML y las reglas que definen la estructura y los elementos válidos de un documento. En HTML 4.01, existen tres tipos de DTD posibles: Estricto (Strict), Transicional (Transitional) y de Marcos (Frameset). 
+1.e
+ Qué son los metadatos y cómo se especifican en HTML?
+  Los metadatos son datos que describen datos, es decir, información sobre el contenido de una página web. Se utilizan para proporcionar información adicional a los navegadores y motores de búsqueda, como el título de la página, la descripción, las palabras clave y la codificación de caracteres. Se especifican dentro de la etiqueta <head> utilizando la etiqueta <meta>.
+
+2.
+
+2.a
+<!-- Código controlado el día 12/08/2009 →
+
+seccion: `<head>` o `<body>`
+efecto: es solo documentacion para el codigo.
+elemento: comentario de html.
+etiqueta: <!-- -->
+atributos: no tiene.
+
+2.b
+<div id="bloque1">Contenido del bloque1</div>
+
+seccion:<body>
+elemento: div
+efecto: Contenedor de contenido visible.
+etiqueta: <div>, </div>
+atributos: id = "bloque1"
+
+2.c
+<img src="" alt="lugar imagen" id="im1" name="im1" width="32" height="32"
+longdesc="detalles.htm" />
+
+seccion: <body>
+elemento: img
+efecto: Muestra una imagen (no carga si `src` está vacío).
+etiqueta: <img />
+atributos: `src`, `alt`, `id`, `name`, `width`, `height`, `longdesc`
+
+2.d
+<meta name="keywords" lang="es" content="casa, compra, venta, alquiler " />
+<meta http-equiv="expires" content="16-Sep-2019 7:49 PM" />
+
+seccion: <head>
+elemento: meta
+efecto: Define metadatos para el navegador o buscador.
+etiqueta: <meta />
+atributos: `name`, `lang`, `content`, `http-equiv` 
+
+2.e
+<a href="http://www.e-style.com.ar/resumen.html" type="text/html" hreflang="es" charset="utf-8"
+rel="help">Resumen HTML </a>
+
+seccion: <body>
+elemento: a (enlace)
+efecto: Enlace a otra página.
+etiqueta: <a>, </a>
+atributos: `href`, `type`, `hreflang`, `charset`, `rel`
+
+2.f
+
+seccion: <body>
+elemento: `table`, `caption`, `tr`, `th`, `td`
+efecto: Muestra una tabla con encabezados de columna y fila, y contenido vacío.
+etiqueta: `<table>`, `<caption>`, `<tr>`, `<th>`, `<td>`
+atributos: `width`, `summary`, `align`, `scope`
+
+3.
+3.a
+1) <a href="http://www.google.com.ar">Click aquí para ir a Google</a>
+2) <a href="http://www.google.com.ar" target="_blank">Click aquí para ir a Google</a>
+3) <a href="http://www. google.com.ar" type="text/html" hreflang="es" charset="utf-8" rel="help">
+4) <a href="#">Click aquí para ir a Google</a>
+5) <a href="#arriba">Click aquí para volver arriba</a>
+6) <a name="arriba" id="arriba"></a>
+
+| Visualización en el navegador                      | Explicación                                                                                        
+
+ 🔵 *Click aquí para ir a Google* (subrayado, azul)  Enlace normal que abre Google en la **misma pestaña**.                                             
+ 🔵 *Click aquí para ir a Google*                    Igual al anterior, pero se abre en **otra pestaña** por `target="_blank"`.                         
+ 🔵 *Click aquí para ir a Google*                    Enlace con **atributos extra** (idioma, tipo, etc.). Visualmente igual, útil para navegadores/SEO. 
+ 🔵 *Click aquí para ir a Google*                    Enlace que **no lleva a ningún lado**, porque `href="#"` apunta al mismo lugar de la página.       
+ 🔵 *Click aquí para volver arriba*                  Enlace que salta a la **parte superior** de la página (ancla `arriba`).                            
+ *(No se ve nada)*                                   Define el **punto de destino** del enlace anterior. Es una ancla invisible.                        
+
+3.b
+1) <p><img src="im1.jpg" alt="imagen1" /><a href="http://www.google.com.ar">Click aquí</a></p>
+2) <p><a href="http://www.google.com.ar"><img src="im1.jpg" alt="imagen1" /></a> Click aquí</p>
+3) <p><a href="http://www.google.com.ar"><img src="im1.jpg" alt="ima
+    gen1" />Click aquí</a></p>
+4) <p><a href="http://www.google.com.ar"><img src="im1.jpg" alt="imagen1" /></a> <a
+   href="http://www.google.com.ar">Click aquí</a></p>
+
+| Visualización                                     | Explicación                                                             
+ 
+  Imagen visible + texto “Click aquí” como enlace   La imagen **no está enlazada**, solo el texto lo está.                  
+  Imagen enlazada + texto “Click aquí” sin enlace   Solo la imagen lleva a Google; el texto **no está dentro del enlace**.  
+  Imagen + texto “Click aquí”, todo como enlace     **Toda la zona (imagen y texto)** es clickeable para ir a Google.       
+  Imagen enlazada + texto enlazado separados        Imagen y texto son **dos enlaces separados** que llevan al mismo sitio. 
+
+
+3.c
+1) <ul>
+<li>xxx</li>
+<li>yyy</li>
+<li>zzz</li>
+</ul>
+
+2)<ol>
+<li>xxx</li>
+<li>yyy</li>
+<li>zzz</li>
+</ol>
+
+3)<ol>
+<li>xxx</li>
+</ol>
+<ol>
+<li value="2">yyy</li>
+</ol>
+<ol>
+<li
+value="3">zzz</li>
+</ol>
+
+4) <blockquote>
+<p>1. xxx<br />
+2. yyy<br />
+3. zzz</p>
+</blockquote>
+
+| Visualización               |Explicación                                                                                                                                                                  
+ 
+ 🔹 xxx<br>🔹 yyy<br>🔹 zzz     Lista **no ordenada** (`<ul>`). Los ítems aparecen con viñetas.                                                                                                              
+ 1. xxx<br>2. yyy<br>3. zzz   Lista **ordenada simple** (`<ol>`). Muestra números automáticos (1, 2, 3).                                                                                                   
+ 1. xxx<br>2. yyy<br>3. zzz   Lista ordenada **con valores personalizados** usando `value="2"` y `value="3"`, para continuar la numeración manualmente. Útil si querés controlar los números directamente. 
+ 1. xxx<br>2. yyy<br>3. zzz   Representación de lista usando texto plano dentro de un `<blockquote>` (no es una lista HTML real). El `<blockquote>` da **sangría**, y los números se escriben manualmente. 
+
+3.d
+1) <table border="1" width="300">
+<tr>
+<th>Columna 1</th>
+<th>Columna 2</th>
+</tr>
+<tr>
+<td>Celda 1</td>
+<td>Celda 2</td>
+</tr>
+<tr>
+<td>Celda 3</td>
+<td>Celda 4</td>
+</tr>
+</table>
+
+2) <table border="1" width="300">
+<tr>
+<td><div align="center"><strong>Colum
+na1</strong></div></td>
+<td><div align="center"><strong>Columna
+2</strong></div></td>
+</tr>
+<tr>
+<td>Celda 1</td>
+<td>Celda 2</td>
+</tr>
+<tr>
+<td>Celda 3</td>
+<td>Celda 4</td>
+</tr>
+</table>
+
+
+| Visualización                                                                                                                                                                                           | Explicación                                                                                                                                                                                                    
+
+ Una tabla de 2 columnas y 3 filas, con los encabezados “Columna 1” y “Columna 2” en negrita y alineados por defecto (generalmente a la izquierda o centrados según navegador).                           Se usa la etiqueta `<th>` para los encabezados, que por defecto se muestran **en negrita** y **centrados**. Es la forma semánticamente correcta de definir títulos de columnas.                                
+ Misma tabla con títulos “Columna 1” y “Columna 2”, pero los encabezados están dentro de celdas `<td>`, con el texto en **negrita** y **centrado** manualmente usando `<div align="center"><strong>...`   Se usan `<td>` comunes con formato manual (negrita y centrado), lo cual **no es semánticamente correcto** para encabezados. El resultado visual puede ser similar, pero la estructura HTML es menos accesible. 
+
+
+3.e
+1) <table width="200">
+<caption>
+Título
+</caption>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">
+&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+</table>
+
+2) <table width="200">
+<tr>
+<td colspan="3"><div
+align="center">Título</div></td>
+</tr>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+</table>
+
+| Visualización                                                                                                                                                                             | Explicación                                                                                                                                                                                                                                            
+
+ Una tabla de 3 columnas con título en la parte superior. El texto del título aparece solo (no centrado ni abarcando todas las columnas). Celdas grises vacías (relleno con `&nbsp;`).                 Usa la etiqueta `<caption>` para el título de la tabla, que se muestra **arriba** por defecto. Cada celda tiene color de fondo definido (`bgcolor="#dddddd"`), y hay tres columnas definidas. Es la forma **semántica correcta** de titular una tabla. 
+ Una tabla similar de 3 columnas, pero el “título” está dentro de la primera fila de celdas y ocupa las tres columnas (`colspan="3"`), con el texto centrado. Celdas grises vacías como la anterior.   En lugar de usar `<caption>`, el título se pone en la **primera fila de datos**, usando `colspan="3"` para que ocupe todo el ancho y `align="center"` para centrarlo. Es **menos semántico**, pero visualmente puede ser más flexible.                 
+
+3.f
+1) <table width="200">
+<tr>
+<td colspan="3"><div
+align="center">Título</div></td>
+</tr>
+<tr>
+<td rowspan="2" bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+</table>
+2) <table width="200">
+<tr>
+<td colspan="3"><div
+align="center">Título</div></td>
+</tr>
+<tr>
+<td colspan="2"
+bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+<td bgcolor="#dddddd">&nbsp;</td>
+</tr>
+</table>
+
+| Visualización                                                                                                                                                                                                         | Explicación                                                                                                                                                                                                                                   
+
+ Una tabla con un título centrado en la parte superior. En la segunda fila, la **primera celda ocupa dos filas** (`rowspan="2"`), y las demás se reparten normalmente. Las celdas están coloreadas de gris claro.                        Se usa `rowspan="2"` para que la primera celda de la segunda fila se **extienda verticalmente** y ocupe dos filas. Esto genera una estructura compacta y alineada a la izquierda. Es útil para destacar un dato que aplica a más de una fila. 
+ Misma tabla con título centrado, pero en la segunda fila la **primera celda ocupa dos columnas** (`colspan="2"`), desplazando el diseño horizontalmente. La distribución ya no queda alineada verticalmente como en el caso anterior.   Se usa `colspan="2"` en lugar de `rowspan`, lo que hace que una celda ocupe el ancho de dos columnas. Esto **rompe el alineamiento vertical** con la fila siguiente, ya que no hay combinación vertical de celdas.                            
+
+
+
+3.g
+1) <table width="200" border="1">
+<tr>
+<td colspan="3"><div
+align="center">Título</div></td>
+</tr>
+<tr>
+<td colspan="2"rowspan="2">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td width="50%">&nbsp;</td>
+</tr>
+</table>
+
+2) <table width="200" border="1" cellpadding="0"
+cellspacing="0">
+<tr>
+<td colspan="2"><div
+align="center">Título</div></td>
+</tr>
+<tr>
+<td rowspan="2">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td width="50%">&nbsp;</td>
+</tr>
+</table>
+
+| Visualización                                                                                                                                                                                                                                                                     | Explicación                                                                                                                                                                                                                                                                    
+
+ Tabla con título centrado en la parte superior. En la segunda fila, una celda combina **2 columnas y 2 filas** (`colspan="2"` y `rowspan="2"`). A su derecha hay una celda común. La fila siguiente sólo tiene una celda alineada con la anterior. Todas las celdas tienen borde.   En este diseño se combina `colspan="2"` y `rowspan="2"` para que una sola celda se extienda **horizontal y verticalmente**, ocupando 4 espacios de la grilla total. Es una forma de lograr un diseño con bloques grandes combinados.                                           
+ Igual estructura general, pero el título solo ocupa 2 columnas (`colspan="2"`), y la tabla tiene `cellpadding="0"` y `cellspacing="0"` para eliminar los espacios interiores y entre celdas. La celda con `rowspan="2"` aparece debajo del título.                                  En este caso se ajustan los espacios entre las celdas para un diseño más compacto. La celda combinada verticalmente aparece en una ubicación diferente. Las combinaciones de `cellpadding` y `cellspacing` afectan cómo se ve el contenido, sin cambiar la lógica estructural. 
+
+
+3.h
+1) <form id="form1" name="form1" action="procesar.php" method="post" target="_blank">
+<fieldset>
+<legend>LOGIN</legend>
+Usuario: <input type="text" id="usu1" name="usu1" value="xxx" /><br />
+Clave: <input type="password" id="clave1" name="clave1" value="xxx" />
+</fieldset>
+<input type="submit" id="boton1" name="boton1" value="Enviar" />
+</form>
+2) <form id="form2" name="form2" action="" method="get" target="_blank">
+LOGIN<br />
+<label>Usuario: <input type="text" id="usu2" name="usu2" /></label><br />
+<label>Clave: <input type="text" id="clave2" name="clave2" /></label><br />
+<input type="submit" id="boton2" name="boton2" value="Enviar" />
+</form>
+3) <form id="form3" name="form3" action="mailto:xx@xx.com” enctype=text/plain method="p
+ost" target="_blank">
+<fieldset>
+<legend>LOGIN</legend>
+Usuario: <input type="text" id="usu3" name="usu3" /><br />
+Clave: <input type="password" id="clave3" name="clave3" />
+</fieldset>
+<input type="reset" id="boton3" name="boton3" value=
+"Enviar" />
+</form>
+
+|Visualización                                                                                              | Explicación                                                                                                                                                                                                                                                                           
+
+ Un formulario con el título “LOGIN”, campos de texto prellenados con “xxx”, y un botón que dice “Enviar”.   Envia datos a `procesar.php` usando el método `POST`, lo que es más seguro (no visible en URL). Se abre en una nueva pestaña (`target="_blank"`). Es un formulario clásico usado en sitios web.                                                                                           
+ Similar visualmente al Form 1, pero los campos no están prellenados. El botón también dice “Enviar”.        Usa el método `GET`, lo que significa que los datos se envían por la URL (menos seguro). No se agrupan los campos con `<fieldset>` y `<legend>`. También abre en nueva pestaña.                                                                                                          
+ Visualmente similar, pero el botón aparece vacío porque no se asignó un valor al botón.                     Intenta enviar el formulario como si fuera un correo electrónico con `mailto:`, lo que depende del cliente de correo del usuario (poco confiable). El `method="post"` está mal cerrado (`"p ost"`). También usa `reset` en lugar de `submit`, lo que borra los datos en vez de enviarlos. 
+
+
+3.i
+1) <label>Botón 1
+<button type="button" name="boton1" id="boton1">
+<img src="logo.jpg" alt="Botón con imagen " width="30" height="20" /><br />
+<b>CLICK AQUÍ</b></button></label>
+
+2) <label>Botón 2
+<input type="button" name="boton2" id="boton2" value="CLICK AQUÍ" />
+</label>
+
+|Visualización                                                                                     | Explicación                                                                                                        
+
+ Un botón que muestra una imagen (logo.jpg) y debajo un texto en negrita que dice **CLICK AQUÍ**.   Usa `<button>` que permite contenido enriquecido (imagen + texto + etiquetas HTML). Ideal para botones personalizados. 
+ Un botón gris plano con el texto “CLICK AQUÍ”.                                                     Usa `<input type="button">`, que es más limitado: solo permite texto plano mediante el atributo `value`.               
+
+
+3.j
+1) <p><label><input type="radio" name="opcion" id="X" value="X" />X</label><br />
+<label><input type="radio" name="opcion" id="Y" value="Y" />Y</label></p>
+
+2) <p><label><input type="radio" name="opcion1" id="X" value="X" />X</label><br />
+<label><input type="radio" name="opcion2" id="Y" value="Y" />Y</label></p>
+
+ |Visualización                                                                    |Explicación                                                                                                                                                           
+
+ Dos botones circulares, solo se puede seleccionar uno a la vez.                     Ambos inputs comparten el mismo `name`, lo que los agrupa como una única selección. Comportamiento esperado en opciones tipo “sí/no”, “hombre/mujer”, etc.                
+ También dos botones circulares, pero se pueden seleccionar ambos al mismo tiempo.   Como tienen nombres distintos, son considerados **grupos separados**, por eso permiten seleccionar ambos. No es comportamiento típico de opciones mutuamente excluyentes. 
+
+3.k
+1)<select name="lista">
+<optgroup label="Caso 1">
+<option>Mayo</option>
+<option>Junio</option>
+</optgroup>
+<optgroup label="Caso 2">
+<option>Mayo</option>
+<option>Junio</option>
+</optgroup>
+</select>
+
+2)<select name="lista[]" multiple="multiple">
+<optgroup label=" Caso 1">
+<option>Mayo</option>
+<option>Junio</option>
+</optgroup>
+<optgroup label=" Caso 2">
+<option>Mayo</option>
+<option>Junio</option>
+</optgroup>
+</select>
+
+| Visualización                                                                                     | Explicación                                                                                                                                                      
+
+ Menú desplegable clásico, donde solo se puede elegir una opción. Agrupado por "Caso 1" y "Caso 2".  `name="lista"` y sin atributo `multiple`, por lo tanto **una sola selección posible**. Ideal para selección única.                                                   
+ Lista desplegable con posibilidad de seleccionar varias opciones (Ctrl+click o Shift+click).        `name="lista[]"` indica que se enviarán múltiples valores, y el atributo `multiple` permite seleccionar más de una opción. El uso de `optgroup` permite categorizar. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
