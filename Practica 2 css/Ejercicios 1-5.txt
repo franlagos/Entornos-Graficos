@@ -1,0 +1,145 @@
+Ejercitación 1.
+
+1. ¿ Qué es CSS y para qué se usa?
+CSS Es un lenguaje de hojas de estilo, sus siglas son de hojas de estilo en cascada.
+Las hojas de estilo es una tecnología que nos permite controlar 
+la apariencia de una página web. Podemos especificar estilos como el tamaño, fuentes, color, 
+espaciado entre textos y recuadros así como el lugar donde disponer texto e imágenes en la página.
+
+2. CSS utiliza reglas para las declaraciones de estilo, ¿cómo funcionan?
+El lenguaje de las Hojas de Estilo está definido en las 
+Especificaciones CSS1, CSS2 y CSS3 del World Wide Web Con sortium (W3C).
+Es un estándar aceptado por toda la industria relacionada con 
+la Web, o por lo menos, gran parte de navegadores 
+Podemos asociar las reglas de estilo a las marcas HTML de tres maneras:
+.directamente a la marca
+.en el head de la página 
+.o agrupar las reglas de estilo en un archivo independiente 
+con extensión *.css
+
+3. ¿ Cuáles son las tres formas de dar estilo a un documento? 
+.Nivel de elemento  HTML
+.Nivel de página
+.En un archivo externo
+
+4. ¿ Cuáles son los distintos tipos de selectores más utilizados?  Ejemplifique cada uno. 
+. Selector de etiqueta
+p {
+  color: blue;
+}
+
+. Selector de clase
+ .destacado {
+   font-weight: bold;
+   color: red;
+}
+<p class="destacado">Este párrafo está en rojo y negrita</p>
+
+.Selector de ID
+#titulo {
+  font-size: 24px;
+  text-align: center;
+}
+
+<h1 id="titulo">Título principal</h1>
+
+5. ¿ Qué es una pseudo-clase? ¿Cuáles son las más utilizadas aplicadas a vínculos?
+Una pseudo-clase en CSS es una palabra clave que se agrega a un selector para definir un estado especial de un elemento sin
+necesidad de agregar clases o IDs en el HTML.Se escribe con dos puntos : antes de su nombre.
+Más utilizados:
+:link → Aplica al enlace que aún no fue visitado.
+:visited → Aplica al enlace que ya fue visitado por el usuario.
+:hover → Aplica cuando el puntero del mouse pasa encima del enlace.
+:active → Aplica al enlace en el momento en que se hace clic sobre él (mientras se mantiene presionado).
+
+6. ¿ Qué es la herencia? 
+la herencia es el mecanismo por el cual ciertos estilos aplicados a un elemento se transmiten automáticamente a sus elementos
+hijos.
+
+7. ¿ En qué consiste el proceso denominado cascada?
+El proceso de cascada es la forma en que el navegador decide qué estilos aplicar a un elemento cuando hay varias reglas que
+podrían afectarlo. Es el mecanismo de resolución de conflictos cuando diferentes reglas CSS se aplican sobre el mismo
+elemento.
+
+Ejercitación 2.
+
+Selectores: 
+p#normal → aplica solo al párrafo (<p>) con id="normal".
+*#destacado → aplica a cualquier elemento con id="destacado"
+#distinto → aplica al elemento con id="distinto".
+
+Declaraciones:
+font-family: arial, helvetica; → tipografía Arial (o Helvetica si no está disponible).
+font-size: 11px; → tamaño de letra 11px.
+font-weight: bold; → texto en negrita.
+border-style: solid; → borde sólido.
+border-color: blue; → color de borde azul.
+border-width: 2px; → ancho del borde de 2px.
+background-color: #9EC7EB; → color de fondo celeste.
+color: red; → texto en rojo.
+
+<p id="normal">Este es un párrafo</p> Recibe la **Regla 1 (`p#normal`)**.
+Efecto: - Fuente Arial/Helvetica - Tamaño 11px - Texto en negrita
+<p id="destacado">Este es otro párrafo</p> Recibe la **Regla 2 (`#destacado`)**.
+Efecto: - Párrafo con borde **azul, sólido, de 2px** alrededor.
+<table id="destacado"><tr><td>Esta es una tabla</td></tr></table>También recibe la **Regla 2 (`#destacado`)**, porque 
+tiene ese id.
+Efecto: - La **tabla entera** tendrá un borde **azul, sólido, de 2px**.
+<p id="distinto">Este es el último párrafo</p> Recibe la **Regla 3 (`#distinto`)**.
+Efecto: - Fondo celeste `#9EC7EB` - Texto en rojo
+
+Ejercitación 3.
+
+Selectores:
+p.quitar → aplica solo a los párrafos <p> que tengan la clase quitar.
+*.desarrollo → aplica a cualquier elemento con clase desarrollo.
+.importante → aplica a los elementos con clase importante.
+
+Declaraciones:
+color: red; → texto en rojo.
+font-size: 8px; → tamaño de fuente de 8px.
+font-size: 20px; → texto con tamaño de 20px.
+
+p class="desarrollo">En este primer párrafo...</p> Recibe la **Regla 2 (`.desarrollo`)**.
+Efecto: texto con tamaño **8px** (muy pequeño).
+<p class="quitar">Este párrafo debe ser quitado...</p>Recibe la **Regla 1 (`p.quitar`)**.
+Efecto: texto en **rojo**.
+<p>En este otro párrafo trataremos otro tema...</p> No tiene clase → no recibe reglas → se ve con estilo
+ **por defecto del navegador**.
+<p class="importante">Y este es el párrafo más importante...</p> Recibe la **Regla 3 (`.importante`)**.
+Efecto: texto con **tamaño 20px** (grande).
+<h1 class="quitar">Este encabezado también debe ser quitado...</h1> El `h1` con clase `quitar`
+**NO recibe el color rojo**, porque no cumple el selector (`h1 ≠ p`).
+Resultado: se muestra con el estilo por defecto de un `h1` (grande y en negro).
+<p class="quitar importante">Se pueden aplicar varias clases...</p> Este párrafo tiene **dos clases**: `quitar`
+ e `importante`.
+Entonces recibe **dos reglas al mismo tiempo**: - De `p.quitar`: `color: red;` (texto rojo).
+ - De `.importante`: `font-size: 20px;` (texto grande).
+
+Ejercitación 4.
+
+En el primer caso:
+El <p> es 14px, negro, normal (porque el inline anula el bold).
+El texto de la tabla es verde.
+El enlace es gris (u otro según su estado).
+En el segundo caso se muestra lo mismo, la diferencia radica en que:
+en el primer caso hubo que anular explícitamente la negrita con inline,
+en el segundo caso nunca se aplicó la negrita al <p>, porque esa propiedad NO se transmite a los hijos.
+
+Ejercitación 5.
+
+1) :is(h1,h2,h3,h4,h5,h6) em { color: red; }
+2) blockquote p [href] { color: black; }
+3) #ultimo ul { color: yellow; }
+   #ultimo ul a[href^="http"] { color: blue; }
+4) blockquote #importante { color: green; }
+   :is(h1,h2,h3,h4,h5,h6) #importante { color: red; }
+5) h1[title] { color: blue; }
+6) ol a { text-decoration: none; }
+   ol a:link { color: blue; }
+   ol a:visited { color: purple; }
+
+
+
+
+
