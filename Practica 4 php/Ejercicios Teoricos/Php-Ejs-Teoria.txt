@@ -1,0 +1,75 @@
+PHP: variables, tipos, operadores, expresiones, estructuras de control
+
+Ejercicio 1)
+
+Variables y su tipo:
+$a: boolean
+$b: string
+$c: string
+$d: int
+$f: int
+$g: int
+
+Operadores:
+=: Operador de asignación.
+*: Operador de multiplicación.
+==: Operador de igualdad (compara valor y tipo).
++: Operador de suma.
+++: Operador de post-incremento (incrementa en 1).
++=: Operador de asignación de suma (suma y asigna).
+.: Operador de concatenación de cadenas.
+
+Funciones y parámetros:
+doble($i): Esta función recibe un parámetro llamado $i. 
+
+Estructuras de control:
+.if (is_int($d)) { 
+    $d += 4; 
+} 
+
+.if (is_string($a)) { 
+    echo "Cadena: $a"; 
+} 
+
+Salida por pantalla: booleanstringstringinteger1xyzxyz184444
+
+Ejercicio 2)
+
+a) los tres códigos son equivalentes, la salida en estos es: 12345678910
+
+b) los cuatro códigos son equivalentes, la salida en estos es: 12345678910
+
+c) los dos códigos son equivalentes, la salida de estos dependerá igualmente del valor de i
+
+Ejercicio 3) 
+
+a) El código se utiliza para mostrar en el navegador una tabla de 5 filas y dos columnas, con php envía le muestra código HTML al navegador que interpreta y muestra una tabla.
+
+b)Este código PHP implementa un formulario web y maneja la entrada del usuario para luego imprimir en pantalla si la persona es mayor o menor de edad. 
+
+Ejercicio 4)
+
+La salida del código será: primero dos advertencias sobre que las variables: $color y $clavel están indefinidas, luego imprimirá el mensaje: El clavel blanco.
+Justificación: Esto se debe a que primero en el documento realmente no están definidas las variables, luego al importa el archivo datos.php, el documento ya tiene la información necesaria de las variables para mostrar el mensaje.
+
+
+PHP: arrays, funciones
+
+1)
+
+En ambos códigos se crea un arreglo llamado a, en cada uno se hace de una manera distinta, pero se le agregan a ambos los mismos elementos donde al último (el 4), no se le asigna una clave sino que simplemente se pasa el valor por lo que se le asignara una automáticamente. En si ambos códigos son equivalentes porque al fin y al cabo crean dos arreglos iguales aunque de diferente manera.
+
+2)
+
+a) Salida: bar1
+b) Salida: 5942
+c) Salida: 
+en el c) no hay salida.
+
+3)
+
+a) Devuelve un mensaje que indica la hora, minutos, segundos, día, mes y año en el que se entró a la página. Esto lo hace gracias a la función getdate().
+
+b) Devuelve: 5+6=11
+
+
